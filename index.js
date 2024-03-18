@@ -9,7 +9,6 @@ app.get('/screenshot', async (req, res) => {
   try {
     // Launch Puppeteer browser
     const browser = await puppeteer.launch({
-      args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--ignore-certificate-errors', '--disable-web-security', '--disable-features=IsolateOrigins', '--disable-site-isolation-trials'],
       defaultViewport: {
         width: 1920,
         height: 1080
@@ -26,7 +25,6 @@ app.get('/screenshot', async (req, res) => {
 
     // Capture screenshot
     const screenshot = await page.screenshot({ fullPage: true });
-    console.log("🚀 ~ app.get ~ screenshot:", screenshot)
 
     // Set response content type and send screenshot
     res.set('Content-Type', 'image/png');
