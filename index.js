@@ -8,7 +8,14 @@ app.get('/screenshot', async (req, res) => {
   const url = req.query.url;
   try {
     // Launch Puppeteer browser
-    const browser = await puppeteer.launch({ headless: true }); // Adjust headless option as needed
+    const browser = await puppeteer.launch({
+      args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--ignore-certificate-errors', '--disable-web-security', '--disable-features=IsolateOrigins', '--disable-site-isolation-trials'],
+      defaultViewport: {
+        width: measures.width,
+        height: measures.height
+      },
+      headless: true
+    }); // Adjust headless option as needed
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36');
     // Navigate to the provided URL
