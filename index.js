@@ -19,6 +19,7 @@ app.get('/screenshot', async (req, res) => {
 
     // Capture screenshot
     const screenshot = await page.screenshot({ fullPage: true });
+    console.log("🚀 ~ app.get ~ screenshot:", screenshot)
 
     // Set response content type and send screenshot
     res.set('Content-Type', 'image/png');
