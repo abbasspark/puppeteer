@@ -1,7 +1,8 @@
 #!/bin/bash
+pkg install root-repo
+pkg install docker
+pkg install python3
+pip3 install --upgrade pip
+pip3 install docker-compose
 
-# Build the Docker image
-docker build -t puppeteer .
-
-# Run the Docker container
-docker run -p 3000:3000 puppeteer
+docker-compose up -d
