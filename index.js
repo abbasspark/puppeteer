@@ -11,8 +11,8 @@ app.get('/screenshot', async (req, res) => {
     const browser = await puppeteer.launch({
       args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--ignore-certificate-errors', '--disable-web-security', '--disable-features=IsolateOrigins', '--disable-site-isolation-trials'],
       defaultViewport: {
-        width: measures.width,
-        height: measures.height
+        width: 1920,
+        height: 1080
       },
       headless: true
     }); // Adjust headless option as needed
