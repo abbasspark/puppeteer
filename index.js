@@ -16,6 +16,7 @@ app.get('/screenshot', async (req, res) => {
       },
       headless: true
     }); // Adjust headless option as needed
+    console.log("🚀 ~ app.get ~ browser:", browser)
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36');
     // Navigate to the provided URL
