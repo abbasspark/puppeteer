@@ -13,7 +13,7 @@ app.get('/screenshot', async (req, res) => {
         width: 1920,
         height: 1080
       },
-      headless: true
+      headless: false
     }); // Adjust headless option as needed
     console.log("🚀 ~ app.get ~ browser:", browser)
     const page = await browser.newPage();
