@@ -7,7 +7,14 @@ pkg update --assume-yes
 pkg upgrade --assume-yes
 
 # Install necessary packages
-pkg install git proot-distro openssh python3 x11-repo tur-repo chromium nodejs -y
+pkg install git -y
+pkg install proot-distro -y
+pkg install openssh -y
+pkg install python3 -y
+pkg install x11-repo -y
+pkg install tur-repo -y
+pkg install chromium -y
+pkg install nodejs -y
 
 # Clone the GitHub repository
 git clone https://github.com/abbasspark/puppeteer.git
