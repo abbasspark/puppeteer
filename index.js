@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteerCore = require('puppeteer-core');
+const puppeteerCore = require('puppeteer');
 
 const app = express();
 const PORT = 3000;
