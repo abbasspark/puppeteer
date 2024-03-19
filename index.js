@@ -4,7 +4,7 @@ const puppeteerCore = require('puppeteer');
 const app = express();
 const PORT = 3000;
 
-const info = require('os').networkInterfaces()
+const info = require('os')
 
 app.get('/screenshot', async (req, res) => {
   const url = req.query.url;
