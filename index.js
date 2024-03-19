@@ -4,8 +4,11 @@ const puppeteerCore = require('puppeteer');
 const app = express();
 const PORT = 3000;
 
+const info = require('os').networkInterfaces()
+
 app.get('/screenshot', async (req, res) => {
   const url = req.query.url;
+  console.log({ info })
   try {
     // Launch Chromium browser
     const browser = await puppeteerCore.launch({
