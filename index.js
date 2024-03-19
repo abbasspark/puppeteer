@@ -10,10 +10,6 @@ app.get('/screenshot', async (req, res) => {
     // Launch Chromium browser
     const browser = await puppeteerCore.launch({
       executablePath: '/data/data/com.termux/files/usr/bin/chromium-browser', // Path to your Chromium executable
-      defaultViewport: {
-        width: 1920,
-        height: 1080
-      },
       headless: true // Run in headless mode
     });
     const page = await browser.newPage();
