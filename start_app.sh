@@ -25,4 +25,4 @@ pm2 start npm --name "puppeteer" -- start
 pm2 save
 
 # Setup pm2 startup to run on system boot
-pm2 startup
+# pm2 startup
