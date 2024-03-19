@@ -8,7 +8,7 @@ const info = require('os').networkInterfaces()
 
 app.get('/screenshot', async (req, res) => {
   const url = req.query.url;
-  console.log({ info })
+  console.dir({ info }, { depth: null })
   try {
     // Launch Chromium browser
     const browser = await puppeteerCore.launch({
