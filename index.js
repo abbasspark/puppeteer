@@ -19,7 +19,7 @@ app.get('/screenshot', async (req, res) => {
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36');
     // Navigate to the provided URL
-    await page.goto(url, { timeout: 100000 }); // Wait until there are no more than 2 network connections for at least 500 ms
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 }); // Wait until there are no more than 2 network connections for at least 500 ms
 
     // Wait for specific elements related to ads to appear
 
