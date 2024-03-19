@@ -1,6 +1,8 @@
+version: '3'
+
 services:
   nodejs:
-    build: .
+    image: arm32v7/node:latest
     ports:
       - "3000:3000"
     volumes:
