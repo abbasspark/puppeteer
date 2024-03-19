@@ -5,10 +5,8 @@ const app = express();
 const PORT = 3000;
 
 const info = require('os')
-
-app.get('/screenshot', async (req, res) => {
-  const url = req.query.url;
-  console.dir({
+app.get('/info', async (req, res) => {
+  res.send({
     platform: info.platform(),
     release: info.release(),
     freemem: info.freemem(),
@@ -19,7 +17,11 @@ app.get('/screenshot', async (req, res) => {
     userInfo: info.userInfo(),
     version: info.version(),
 
-  }, { depth: null })
+  })
+})
+app.get('/screenshot', async (req, res) => {
+  const url = req.query.url;
+
   try {
     // Launch Chromium browser
     const browser = await puppeteerCore.launch({
