@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteer = require('puppeteer');
+const puppeteerCore = require('puppeteer-core');
 
 const app = express();
 const PORT = 3000;
@@ -7,15 +7,15 @@ const PORT = 3000;
 app.get('/screenshot', async (req, res) => {
   const url = req.query.url;
   try {
-    // Launch Puppeteer browser
-    const browser = await puppeteer.launch({
+    // Launch Chromium browser
+    const browser = await puppeteerCore.launch({
+      executablePath: '/usr/bin/chromium-browser', // Path to your Chromium executable
       defaultViewport: {
         width: 1920,
         height: 1080
       },
-      headless: false
-    }); // Adjust headless option as needed
-    console.log("🚀 ~ app.get ~ browser:", browser)
+      headless: true // Run in headless mode
+    });
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36');
     // Navigate to the provided URL
