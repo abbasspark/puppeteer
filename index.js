@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteerCore = require('puppeteer-core');
+const puppeteerCore = require('puppeteer');
 
 const app = express();
 const PORT = 3000;
@@ -14,7 +14,7 @@ app.get('/screenshot', async (req, res) => {
         width: 1920,
         height: 1080
       },
-      headless: false // Run in headless mode
+      headless: true // Run in headless mode
     });
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36');
