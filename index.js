@@ -1,5 +1,5 @@
 const express = require('express');
-const puppeteerCore = require('puppeteer');
+const puppeteerCore = require('puppeteer-core');
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +9,7 @@ app.get('/screenshot', async (req, res) => {
   try {
     // Launch Chromium browser
     const browser = await puppeteerCore.launch({
-      executablePath: '/usr/bin/chromium-browser', // Path to your Chromium executable
+      executablePath: '/data/data/com.termux/files/usr/bin/chromium-browser', // Path to your Chromium executable
       defaultViewport: {
         width: 1920,
         height: 1080
